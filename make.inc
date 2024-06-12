@@ -2,14 +2,16 @@
 # Compilers
 #
 
-CXX := g++
-CC  := gcc
-FC  := gfortran
+CXX := ${HOME}/djgpp/bin/i586-pc-msdosdjgpp-g++
+CC  := ${HOME}/djgpp/bin/i586-pc-msdosdjgpp-gcc
+FC  := ${HOME}/djgpp/bin/i586-pc-msdosdjgpp-gfortran
+AR  := ${HOME}/djgpp/bin/i586-pc-msdosdjgpp-ar
+RANLIB := ${HOME}/djgpp/bin/i586-pc-msdosdjgpp-ranlib
 
 #
 # Compiler and linker flags
 #
-CXXFLAGS   += -msse3 -mfpmath=sse
+# CXXFLAGS   += -msse3 -mfpmath=sse
 CXXFLAGS   += -std=c++11 -O3  -fomit-frame-pointer -Wall
 
 FFLAGS     += -Wall -fimplicit-none -O3
