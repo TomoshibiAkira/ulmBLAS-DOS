@@ -38,6 +38,16 @@ namespace ulmBLAS {
 
 #if defined(USE_TESTPARAM)
 
+#if defined(USE_FMA)
+    #   define SIMD_WIDTH               256
+#elif defined(USE_AVX)
+    #   define SIMD_WIDTH               256
+#elif defined(USE_SSE)
+    #   define SIMD_WIDTH               128
+#else
+    #   define SIMD_WIDTH               0
+#endif
+
 #   define BS_DEFAULT_MC_S          USE_TESTPARAM_MC
 #   define BS_DEFAULT_KC_S          USE_TESTPARAM_KC
 #   define BS_DEFAULT_NC_S          USE_TESTPARAM_NC

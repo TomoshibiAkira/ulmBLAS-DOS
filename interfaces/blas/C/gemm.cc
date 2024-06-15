@@ -338,35 +338,39 @@ CBLAS(sgemm)(enum CBLAS_ORDER      order,
     {
         info = 3;
     } else {
-        if (order==CblasColMajor) {
-            if (m<0) {
-                info = 4;
-            } else if (n<0) {
-                info = 5;
-            } else if (k<0) {
-                info = 6;
-            } else if (ldA<std::max(1,numRowsA)) {
-                info = 9;
-            } else if (ldB<std::max(1,numRowsB)) {
-                info = 11;
-            } else if (ldC<std::max(1,m)) {
-                info = 14;
-            }
-        } else {
-            if (n<0) {
-                info = 4;
-            } else if (m<0) {
-                info = 5;
-            } else if (k<0) {
-                info = 6;
-            } else if (ldB<std::max(1,numRowsB)) {
-                info = 9;
-            } else if (ldA<std::max(1,numRowsA)) {
-                info = 11;
-            } else if (ldC<std::max(1,n)) {
-                info = 14;
-            }
-         }
+        // There's really no need to adjust the error info for row/col-major,
+        // as the user may not know the A/B exchange and transpose operation happened here,
+        // which makes the adjusted error info confusing.
+        if (m<0) {
+            info = 4;
+        } else if (n<0) {
+            info = 5;
+        } else if (k<0) {
+            info = 6;
+        } else if (ldA<std::max(1,numRowsA)) {
+            info = 9;
+        } else if (ldB<std::max(1,numRowsB)) {
+            info = 11;
+        } else if (ldC<std::max(1,m)) {
+            info = 14;
+        }
+
+        // if (order==CblasColMajor) {
+        // } else {
+        //     if (n<0) {
+        //         info = 4;
+        //     } else if (m<0) {
+        //         info = 5;
+        //     } else if (k<0) {
+        //         info = 6;
+        //     } else if (ldB<std::max(1,numRowsB)) {
+        //         info = 9;
+        //     } else if (ldA<std::max(1,numRowsA)) {
+        //         info = 11;
+        //     } else if (ldC<std::max(1,n)) {
+        //         info = 14;
+        //     }
+        //  }
     }
 
     if (info!=0) {

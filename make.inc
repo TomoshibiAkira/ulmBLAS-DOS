@@ -7,6 +7,7 @@ CC  := ${HOME}/djgpp/bin/i586-pc-msdosdjgpp-gcc
 FC  := ${HOME}/djgpp/bin/i586-pc-msdosdjgpp-gfortran
 AR  := ${HOME}/djgpp/bin/i586-pc-msdosdjgpp-ar
 RANLIB := ${HOME}/djgpp/bin/i586-pc-msdosdjgpp-ranlib
+# RANLIB := /usr/bin/ranlib
 
 #
 # Compiler and linker flags

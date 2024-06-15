@@ -10,6 +10,10 @@ f77blas:
 
 cblas:
 	$(MAKE) -C interfaces/blas/C config_cblas
+	rm -r build
+	mkdir -p build
+	mv cblas.h build/
+	mv libcblas.a build/
 
 atlblas:
 	$(MAKE) -C interfaces/blas/C config_atl
