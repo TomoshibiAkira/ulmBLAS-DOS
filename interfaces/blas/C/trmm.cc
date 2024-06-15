@@ -5,9 +5,8 @@
 #include <cmath>
 #include <interfaces/blas/C/transpose.h>
 #include <interfaces/blas/C/xerbla.h>
-#include <ulmblas/ulmblas.h>
 
-#include <ulmblas/auxiliary/printmatrix.h>
+#include <ulmblas/ulmblas.h>
 
 extern "C" {
 

@@ -48,7 +48,7 @@ template <typename T>
 T *
 MemoryPool<T>::allocate(size_t n)
 {
-    mutex_.lock();
+    // mutex_.lock();
 
     constexpr std::size_t align = BlockSize<T>::align;
 
@@ -68,7 +68,7 @@ MemoryPool<T>::allocate(size_t n)
     }
     used_[block] = n;
 
-    mutex_.unlock();
+    // mutex_.unlock();
     return block;
 }
 
@@ -76,7 +76,7 @@ template <typename T>
 void
 MemoryPool<T>::release(T *block)
 {
-    mutex_.lock();
+    // mutex_.lock();
 
     if (block) {
         assert(used_.count(block)==1);
@@ -84,7 +84,7 @@ MemoryPool<T>::release(T *block)
         free_[n].push_back(block);
     }
 
-    mutex_.unlock();
+    // mutex_.unlock();
 }
 
 template <typename T>

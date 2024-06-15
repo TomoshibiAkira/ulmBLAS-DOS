@@ -33,7 +33,9 @@
 
 #include <list>
 #include <unordered_map>
-#include <mutex>
+
+// No mutex support in DJGPP yet. We're not doing multithreading anyway :)
+// #include <mutex>
 
 namespace ulmBLAS {
 
@@ -60,7 +62,7 @@ class MemoryPool
         Free        free_;
         Used        used_;
         BlockList   allocated_;
-        std::mutex  mutex_;
+        // std::mutex  mutex_;
 };
 
 
